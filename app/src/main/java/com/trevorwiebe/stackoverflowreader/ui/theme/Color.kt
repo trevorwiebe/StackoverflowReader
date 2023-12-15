@@ -1,4 +1,4 @@
-package com.trevorwiebe.stackoverflowreader.presentation.ui.theme
+package com.trevorwiebe.stackoverflowreader.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
