@@ -1,4 +1,4 @@
-package com.trevorwiebe.stackoverflowreader
+package com.trevorwiebe.stackoverflowreader.domain
 
 data class Questions(
     val site: String = "",

@@ -1,5 +1,6 @@
-package com.trevorwiebe.stackoverflowreader
+package com.trevorwiebe.stackoverflowreader.data
 
+import com.trevorwiebe.stackoverflowreader.domain.Questions
 import retrofit2.Response
 import retrofit2.http.GET
 
