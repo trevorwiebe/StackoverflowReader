@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.lifecycleScope
+import com.trevorwiebe.stackoverflowreader.presentation.HotQuestions
 import com.trevorwiebe.stackoverflowreader.presentation.ui.theme.StackOverflowReaderTheme
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -26,34 +27,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             StackOverflowReaderTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+                HotQuestions()
             }
         }
 
-        lifecycleScope.launch {
-            val response = try {
-                RetrofitInstance.api.getHotQuestions()
-            } catch(e: IOException) {
-                Log.e(TAG, "IOException, you might not have internet connection")
-                return@launch
-            } catch (e: HttpException) {
-                Log.e(TAG, "HttpException, unexpected response", e)
-                return@launch
-            }
-            if(response.isSuccessful && response.body() != null) {
-                startTTS("Call was successful")
-                Log.d(TAG, "onCreate: Successful")
-                Log.d(TAG, "onCreate: ${response.body()}")
-            } else {
-                Log.e(TAG, "Response not successful")
-            }
-        }
     }
 
     private val textToSpeechEngine: TextToSpeech by lazy {
