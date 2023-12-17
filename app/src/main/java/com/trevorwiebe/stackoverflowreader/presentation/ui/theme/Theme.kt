@@ -1,4 +1,4 @@
-package com.trevorwiebe.stackoverflowreader.ui.theme
+package com.trevorwiebe.stackoverflowreader.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
