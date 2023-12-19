@@ -5,10 +5,6 @@ import android.speech.tts.TextToSpeech
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.trevorwiebe.stackoverflowreader.presentation.ui.theme.StackOverflowReaderTheme
 import java.util.Locale
 
@@ -50,22 +46,5 @@ class MainActivity : ComponentActivity() {
         textToSpeechEngine.stop()
         textToSpeechEngine.shutdown()
         super.onDestroy()
-    }
-}
-
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    StackOverflowReaderTheme {
-        Greeting("Android")
     }
 }
