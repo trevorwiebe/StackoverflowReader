@@ -2,9 +2,7 @@ package com.trevorwiebe.stackoverflowreader.presentation
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.trevorwiebe.stackoverflowreader.RetrofitInstance
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

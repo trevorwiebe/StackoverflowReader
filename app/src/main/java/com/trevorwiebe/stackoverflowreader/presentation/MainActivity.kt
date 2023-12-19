@@ -2,23 +2,14 @@ package com.trevorwiebe.stackoverflowreader.presentation
 
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.lifecycleScope
-import com.trevorwiebe.stackoverflowreader.presentation.HotQuestions
 import com.trevorwiebe.stackoverflowreader.presentation.ui.theme.StackOverflowReaderTheme
-import kotlinx.coroutines.launch
-import retrofit2.HttpException
-import java.io.IOException
 import java.util.Locale
 
 const val TAG = "MainActivity"
