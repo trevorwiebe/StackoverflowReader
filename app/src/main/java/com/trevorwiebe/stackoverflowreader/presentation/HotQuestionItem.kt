@@ -46,6 +46,7 @@ fun HotQuestionItem(
         ){
             Text(
                 modifier = Modifier
+                    .padding(4.dp)
                     .width(48.dp)
                     .clip(CircleShape)
                     .background(MaterialTheme.colorScheme.primary)
@@ -57,7 +58,7 @@ fun HotQuestionItem(
             )
         }
         Column(
-            modifier = Modifier.weight(7f)
+            modifier = Modifier.weight(6f)
         ) {
             Text(
                 modifier = Modifier
