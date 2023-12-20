@@ -1,9 +1,12 @@
 package com.trevorwiebe.stackoverflowreader.presentation
 
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.trevorwiebe.stackoverflowreader.RetrofitInstance
+import com.trevorwiebe.stackoverflowreader.data.tts.TTSHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,9 +15,11 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
+import javax.inject.Inject
 
-class HotQuestionsViewModel(
-
+@HiltViewModel
+class HotQuestionsViewModel @Inject constructor(
+    val ttsHelper: TTSHelper
 ): ViewModel() {
 
     private val _state = MutableStateFlow(HotQuestionsState())
@@ -22,6 +27,13 @@ class HotQuestionsViewModel(
 
     init {
         loadHotQuestions()
+        Handler(Looper.getMainLooper()).postDelayed({
+            // This method will be executed once the timer is over
+                val text = "Hello, this is a sample text to be spoken."
+                ttsHelper.speak(text)
+            //                textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
+            }, 3000 // value in milliseconds
+        )
     }
 
     private fun loadHotQuestions() {
