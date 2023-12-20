@@ -20,7 +20,10 @@ fun HotQuestions(
                 points = it.display_score.toInt().toString(),
                 questionTitle = it.title,
                 category = it.site,
-                tagsList = it.tags
+                tagsList = it.tags,
+                onClick = {
+                    viewModel.onEvent(HotQuestionsEvents.OnQuestionSelected(it))
+                }
             )
         }
     }

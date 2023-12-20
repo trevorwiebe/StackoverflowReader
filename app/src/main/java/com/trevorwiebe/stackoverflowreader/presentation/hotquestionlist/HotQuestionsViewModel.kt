@@ -1,7 +1,5 @@
 package com.trevorwiebe.stackoverflowreader.presentation.hotquestionlist
 
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -28,13 +26,14 @@ class HotQuestionsViewModel @Inject constructor(
 
     init {
         loadHotQuestions()
-        Handler(Looper.getMainLooper()).postDelayed({
-            // This method will be executed once the timer is over
-                val text = "Hello, this is a sample text to be spoken."
-                ttsHelper.speak(text)
-            //                textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
-            }, 3000 // value in milliseconds
-        )
+    }
+
+    fun onEvent(event: HotQuestionsEvents){
+        when(event){
+            is HotQuestionsEvents.OnQuestionSelected -> {
+                ttsHelper.speak(event.questionsTitle)
+            }
+        }
     }
 
     private fun loadHotQuestions() {
@@ -51,8 +50,6 @@ class HotQuestionsViewModel @Inject constructor(
             if (response.isSuccessful && response.body() != null) {
 
                 _state.update { it.copy(hotQuestions = response.body()!!) }
-
-            } else {
 
             }
         }
