@@ -1,4 +1,4 @@
-package com.trevorwiebe.stackoverflowreader.presentation
+package com.trevorwiebe.stackoverflowreader.presentation.hotquestionlist
 
 import com.trevorwiebe.stackoverflowreader.domain.Questions
 

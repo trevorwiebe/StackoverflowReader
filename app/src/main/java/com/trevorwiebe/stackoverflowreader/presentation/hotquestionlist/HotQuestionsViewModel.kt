@@ -1,4 +1,4 @@
-package com.trevorwiebe.stackoverflowreader.presentation
+package com.trevorwiebe.stackoverflowreader.presentation.hotquestionlist
 
 import android.os.Handler
 import android.os.Looper
@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.trevorwiebe.stackoverflowreader.RetrofitInstance
 import com.trevorwiebe.stackoverflowreader.data.tts.TTSHelper
+import com.trevorwiebe.stackoverflowreader.presentation.TAG
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

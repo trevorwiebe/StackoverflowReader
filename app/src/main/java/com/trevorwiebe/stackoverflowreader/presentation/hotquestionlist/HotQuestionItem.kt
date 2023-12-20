@@ -1,4 +1,4 @@
-package com.trevorwiebe.stackoverflowreader.presentation
+package com.trevorwiebe.stackoverflowreader.presentation.hotquestionlist
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
