@@ -9,20 +9,21 @@ import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun HotQuestions(
-    viewModel: HotQuestionsViewModel = hiltViewModel()
+    viewModel: HotQuestionsViewModel = hiltViewModel(),
+    onItemClick: (Int) -> Unit
 ) {
 
     val state by viewModel.state.collectAsState()
 
     LazyColumn{
-        items(state.hotQuestions){
+        items(state.hotQuestions){question ->
             HotQuestionItem(
-                points = it.display_score.toInt().toString(),
-                questionTitle = it.title,
-                category = it.site,
-                tagsList = it.tags,
+                points = question.display_score.toInt().toString(),
+                questionTitle = question.title,
+                category = question.site,
+                tagsList = question.tags,
                 onClick = {
-                    viewModel.onEvent(HotQuestionsEvents.OnQuestionSelected(it))
+                    onItemClick(question.question_id)
                 }
             )
         }
