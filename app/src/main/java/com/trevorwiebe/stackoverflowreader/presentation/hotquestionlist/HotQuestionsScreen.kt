@@ -18,12 +18,12 @@ fun HotQuestions(
     LazyColumn{
         items(state.hotQuestions){question ->
             HotQuestionItem(
-                points = question.display_score.toInt().toString(),
+                points = question.displayScore.toInt().toString(),
                 questionTitle = question.title,
                 category = question.site,
                 tagsList = question.tags,
                 onClick = {
-                    onItemClick(question.question_id)
+                    onItemClick(question.questionId)
                 }
             )
         }
