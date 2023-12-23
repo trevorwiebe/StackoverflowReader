@@ -9,7 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.trevorwiebe.stackoverflowreader.presentation.hotquestionitem.HotQuestionItem
+import com.trevorwiebe.stackoverflowreader.presentation.hotquestionitem.HotQuestionItemScreen
 import com.trevorwiebe.stackoverflowreader.presentation.hotquestionlist.HotQuestions
 import com.trevorwiebe.stackoverflowreader.presentation.ui.theme.StackOverflowReaderTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -54,10 +54,7 @@ class MainActivity : ComponentActivity(){
                     }
                 )
             ){
-                HotQuestionItem(
-                    questionId = it.arguments?.getString(HotQuestionItemDestination.questionId),
-                    siteId = it.arguments?.getString(HotQuestionItemDestination.siteId)
-                )
+                HotQuestionItemScreen()
             }
         }
 
