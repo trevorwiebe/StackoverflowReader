@@ -25,17 +25,8 @@ class HotQuestionsViewModel @Inject constructor(
         loadHotQuestions()
     }
 
-    fun onEvent(event: HotQuestionsEvents){
-        when(event){
-            is HotQuestionsEvents.OnQuestionSelected -> {
-                ttsHelper.speak(event.questionsTitle)
-            }
-        }
-    }
-
     private fun loadHotQuestions() {
         viewModelScope.launch {
-
             val response = getHotQuestions()
             if(response!= null){
                 _state.update { it.copy(hotQuestions = response) }
