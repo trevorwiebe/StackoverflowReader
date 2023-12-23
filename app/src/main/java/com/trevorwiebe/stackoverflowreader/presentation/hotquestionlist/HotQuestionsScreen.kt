@@ -10,7 +10,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 @Composable
 fun HotQuestions(
     viewModel: HotQuestionsViewModel = hiltViewModel(),
-    onItemClick: (Int) -> Unit
+    onItemClick: (Int, String) -> Unit
 ) {
 
     val state by viewModel.state.collectAsState()
@@ -23,7 +23,7 @@ fun HotQuestions(
                 category = question.site,
                 tagsList = question.tags,
                 onClick = {
-                    onItemClick(question.questionId)
+                    onItemClick(question.questionId, question.site)
                 }
             )
         }

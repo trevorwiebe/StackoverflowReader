@@ -40,21 +40,25 @@ class MainActivity : ComponentActivity(){
         ){
             composable(route = HotQuestionsList.route){
                 HotQuestions(
-                    onItemClick = {
-                        Log.d(TAG, "HotQuestionsApp: $it")
-                        navController.navigate(HotQuestionItem.route + "/$it")
+                    onItemClick = { questionId, siteId ->
+                        navController.navigate(HotQuestionItem.route + "/$questionId/$siteId")
                     }
                 )
             }
             composable(
-                route = HotQuestionItem.route + "/{${HotQuestionItem.questionId}}",
+                route = HotQuestionItem.route +
+                        "/{${HotQuestionItem.questionId}}" +
+                        "/{${HotQuestionItem.siteId}}",
                 arguments = listOf(
                     navArgument(HotQuestionItem.questionId) {
                         type = NavType.StringType
                     }
                 )
             ){
-                HotQuestionItem(questionId = it.arguments?.getString(HotQuestionItem.questionId))
+                HotQuestionItem(
+                    questionId = it.arguments?.getString(HotQuestionItem.questionId),
+                    siteId = it.arguments?.getString(HotQuestionItem.siteId)
+                )
             }
         }
 

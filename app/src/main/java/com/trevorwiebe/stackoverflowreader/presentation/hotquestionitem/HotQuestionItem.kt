@@ -10,10 +10,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 @Composable
 fun HotQuestionItem(
     questionId: String?,
+    siteId: String?,
     viewModel: HotQuestionItemViewModel = hiltViewModel()
 ) {
 
     Column(modifier = Modifier.fillMaxSize()) {
         Text(text = questionId.toString())
+        Text(text = siteId.toString())
     }
 }

@@ -11,4 +11,5 @@ object HotQuestionsList: Destinations{
 object HotQuestionItem: Destinations{
     override val route: String = "question_item"
     const val questionId: String = "question_id"
+    const val siteId: String = "site_id"
 }
