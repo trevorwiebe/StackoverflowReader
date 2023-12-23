@@ -1,15 +1,15 @@
 package com.trevorwiebe.stackoverflowreader.domain.usecases
 
-import com.trevorwiebe.stackoverflowreader.data.stackoverflow.RetrofitLoader
+import com.trevorwiebe.stackoverflowreader.data.stackoverflow.HotQuestionLoader
 import com.trevorwiebe.stackoverflowreader.domain.HotQuestion
 import com.trevorwiebe.stackoverflowreader.domain.mapper.toHotQuestion
 
 class GetHotQuestions(
-    private val retrofitLoader: RetrofitLoader
+    private val hotQuestionLoader: HotQuestionLoader
 ) {
 
     suspend operator fun invoke(): List<HotQuestion>? {
-        return retrofitLoader.getHotQuestions().body()
+        return hotQuestionLoader.getHotQuestions().body()
             ?.map { it.toHotQuestion() }
     }
 }

@@ -6,7 +6,7 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface RetrofitLoader {
+interface HotQuestionLoader {
 
     @GET("/hot-questions-json")
     suspend fun getHotQuestions(): Response<List<HotQuestionDto>>
@@ -17,8 +17,5 @@ interface RetrofitLoader {
         @Path("siteId") siteId: String,
         @Path("filter", encoded = true) filter: String
     ): Response<ComplexQuestionDto>
-
-//    https://api.stackexchange.com/2.3
-//    !u.*0VeqBWiJrWzd1n5JTZcq7D9h_ZtQ
 
 }

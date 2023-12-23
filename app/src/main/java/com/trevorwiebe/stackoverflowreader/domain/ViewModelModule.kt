@@ -1,6 +1,6 @@
 package com.trevorwiebe.stackoverflowreader.domain
 
-import com.trevorwiebe.stackoverflowreader.data.stackoverflow.RetrofitLoader
+import com.trevorwiebe.stackoverflowreader.data.stackoverflow.HotQuestionLoader
 import com.trevorwiebe.stackoverflowreader.domain.usecases.GetHotQuestions
 import dagger.Module
 import dagger.Provides
@@ -15,8 +15,8 @@ object ViewModelModule {
     @Provides
     @ViewModelScoped
     fun provideGetHotQuestions(
-        retrofitLoader: RetrofitLoader
+        hotQuestionLoader: HotQuestionLoader
     ): GetHotQuestions{
-        return GetHotQuestions(retrofitLoader = retrofitLoader)
+        return GetHotQuestions(hotQuestionLoader = hotQuestionLoader)
     }
 }

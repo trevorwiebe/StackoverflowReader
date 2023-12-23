@@ -1,6 +1,7 @@
 package com.trevorwiebe.stackoverflowreader.data.di
 
-import com.trevorwiebe.stackoverflowreader.data.stackoverflow.RetrofitLoader
+import com.trevorwiebe.stackoverflowreader.data.stackoverflow.HotQuestionLoader
+import com.trevorwiebe.stackoverflowreader.data.util.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,11 +16,11 @@ object RetrofitModule {
 
     @Provides
     @Singleton
-    fun provideRetrofitLoader(): RetrofitLoader {
+    fun provideHotQuestionLoader(): HotQuestionLoader {
         return Retrofit.Builder()
-            .baseUrl("https://stackexchange.com")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(RetrofitLoader::class.java)
+            .create(HotQuestionLoader::class.java)
     }
 }
