@@ -1,7 +1,9 @@
 package com.trevorwiebe.stackoverflowreader.domain
 
+import com.trevorwiebe.stackoverflowreader.data.stackoverflow.ApiQuestionLoader
 import com.trevorwiebe.stackoverflowreader.data.stackoverflow.HotQuestionLoader
 import com.trevorwiebe.stackoverflowreader.domain.usecases.GetHotQuestions
+import com.trevorwiebe.stackoverflowreader.domain.usecases.GetQuestion
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,5 +20,13 @@ object ViewModelModule {
         hotQuestionLoader: HotQuestionLoader
     ): GetHotQuestions{
         return GetHotQuestions(hotQuestionLoader = hotQuestionLoader)
+    }
+
+    @Provides
+    @ViewModelScoped
+    fun provideGetQuestion(
+        apiQuestionLoader: ApiQuestionLoader
+    ): GetQuestion {
+        return GetQuestion(apiQuestionLoader = apiQuestionLoader)
     }
 }

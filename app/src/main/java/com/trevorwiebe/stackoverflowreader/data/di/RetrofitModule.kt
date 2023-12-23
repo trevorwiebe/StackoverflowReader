@@ -1,6 +1,8 @@
 package com.trevorwiebe.stackoverflowreader.data.di
 
+import com.trevorwiebe.stackoverflowreader.data.stackoverflow.ApiQuestionLoader
 import com.trevorwiebe.stackoverflowreader.data.stackoverflow.HotQuestionLoader
+import com.trevorwiebe.stackoverflowreader.data.util.BASE_API_URL
 import com.trevorwiebe.stackoverflowreader.data.util.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -22,5 +24,15 @@ object RetrofitModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(HotQuestionLoader::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideApiQuestionLoader(): ApiQuestionLoader{
+        return Retrofit.Builder()
+            .baseUrl(BASE_API_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ApiQuestionLoader::class.java)
     }
 }

@@ -1,14 +1,14 @@
 package com.trevorwiebe.stackoverflowreader.domain.usecases
 
-import com.trevorwiebe.stackoverflowreader.data.stackoverflow.HotQuestionLoader
+import com.trevorwiebe.stackoverflowreader.data.stackoverflow.ApiQuestionLoader
 
 class GetQuestion(
-    private val hotQuestionLoader: HotQuestionLoader
+    private val apiQuestionLoader: ApiQuestionLoader
 ) {
 
     suspend operator fun invoke(
         questionId: String, siteId: String, filter: String
     ){
-        hotQuestionLoader.getQuestion(questionId, siteId, filter)
+        apiQuestionLoader.getQuestion(questionId, siteId, filter)
     }
 }
