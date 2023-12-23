@@ -1,7 +1,6 @@
 package com.trevorwiebe.stackoverflowreader.presentation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
@@ -36,28 +35,28 @@ class MainActivity : ComponentActivity(){
 
         NavHost(
             navController = navController,
-            startDestination = HotQuestionsList.route
+            startDestination = HotQuestionsListDestination.route
         ){
-            composable(route = HotQuestionsList.route){
+            composable(route = HotQuestionsListDestination.route){
                 HotQuestions(
                     onItemClick = { questionId, siteId ->
-                        navController.navigate(HotQuestionItem.route + "/$questionId/$siteId")
+                        navController.navigate(HotQuestionItemDestination.route + "/$questionId/$siteId")
                     }
                 )
             }
             composable(
-                route = HotQuestionItem.route +
-                        "/{${HotQuestionItem.questionId}}" +
-                        "/{${HotQuestionItem.siteId}}",
+                route = HotQuestionItemDestination.route +
+                        "/{${HotQuestionItemDestination.questionId}}" +
+                        "/{${HotQuestionItemDestination.siteId}}",
                 arguments = listOf(
-                    navArgument(HotQuestionItem.questionId) {
+                    navArgument(HotQuestionItemDestination.questionId) {
                         type = NavType.StringType
                     }
                 )
             ){
                 HotQuestionItem(
-                    questionId = it.arguments?.getString(HotQuestionItem.questionId),
-                    siteId = it.arguments?.getString(HotQuestionItem.siteId)
+                    questionId = it.arguments?.getString(HotQuestionItemDestination.questionId),
+                    siteId = it.arguments?.getString(HotQuestionItemDestination.siteId)
                 )
             }
         }
