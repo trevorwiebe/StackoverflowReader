@@ -1,7 +1,7 @@
 package com.trevorwiebe.stackoverflowreader.presentation.hotquestionlist
 
-import com.trevorwiebe.stackoverflowreader.domain.Questions
+import com.trevorwiebe.stackoverflowreader.domain.HotQuestions
 
 data class HotQuestionsState(
-    val hotQuestions: List<Questions> = emptyList()
+    val hotQuestions: List<HotQuestions> = emptyList()
 )

@@ -1,6 +1,6 @@
 package com.trevorwiebe.stackoverflowreader.domain
 
-data class Questions(
+data class HotQuestions(
     val site: String = "",
     val question_id: Int = 0,
     val title: String = "",
