@@ -1,6 +1,6 @@
 package com.trevorwiebe.stackoverflowreader.data.stackoverflow
 
-import com.trevorwiebe.stackoverflowreader.domain.HotQuestions
+import com.trevorwiebe.stackoverflowreader.data.dto.HotQuestionDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -8,7 +8,7 @@ import retrofit2.http.Path
 interface RetrofitLoader {
 
     @GET("/hot-questions-json")
-    suspend fun getHotQuestions(): Response<List<HotQuestions>>
+    suspend fun getHotQuestions(): Response<List<HotQuestionDto>>
 
     @GET("/questions/{questionId}/answers?site={siteId}&filter={filter}")
     suspend fun getQuestion(
