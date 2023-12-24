@@ -51,9 +51,12 @@ class HotQuestionItemViewModel @Inject constructor(
                 _state.update { it.copy(itemList = response.items.toList()) }
 
                 var speakString = ""
-                response.items.forEach {
-                    val stringResponse = it.bodyMarkdown
-                    speakString = speakString.plus("Next answer: ").plus(stringResponse)
+                response.items.forEachIndexed { index, item ->
+                    val stringResponse = item.bodyMarkdown
+                    if(index != 0) {
+                        speakString = speakString.plus("Next answer: ")
+                    }
+                    speakString = speakString.plus(stringResponse)
                 }
 
                 ttsHelper.speak(speakString)
