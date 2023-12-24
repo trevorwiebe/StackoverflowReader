@@ -4,6 +4,7 @@ import com.trevorwiebe.stackoverflowreader.data.stackoverflow.ApiQuestionLoader
 import com.trevorwiebe.stackoverflowreader.data.stackoverflow.HotQuestionLoader
 import com.trevorwiebe.stackoverflowreader.domain.usecases.GetHotQuestions
 import com.trevorwiebe.stackoverflowreader.domain.usecases.GetQuestion
+import com.trevorwiebe.stackoverflowreader.domain.usecases.StringCleaner
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,8 +26,18 @@ object ViewModelModule {
     @Provides
     @ViewModelScoped
     fun provideGetQuestion(
-        apiQuestionLoader: ApiQuestionLoader
+        apiQuestionLoader: ApiQuestionLoader,
+        stringCleaner: StringCleaner
     ): GetQuestion {
-        return GetQuestion(apiQuestionLoader = apiQuestionLoader)
+        return GetQuestion(
+            apiQuestionLoader = apiQuestionLoader,
+            stringCleaner = stringCleaner
+        )
+    }
+
+    @Provides
+    @ViewModelScoped
+    fun provideStringCleaner(): StringCleaner {
+        return StringCleaner()
     }
 }
