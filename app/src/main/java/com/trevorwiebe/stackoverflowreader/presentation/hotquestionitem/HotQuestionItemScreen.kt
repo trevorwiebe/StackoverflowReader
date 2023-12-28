@@ -1,6 +1,7 @@
 package com.trevorwiebe.stackoverflowreader.presentation.hotquestionitem
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,7 +21,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun HotQuestionItemScreen(
-    viewModel: HotQuestionItemViewModel = hiltViewModel(),
+    paddingValues: PaddingValues,
+    viewModel: HotQuestionItemViewModel = hiltViewModel()
 ) {
 
     val state by viewModel.state.collectAsState()
@@ -28,7 +30,7 @@ fun HotQuestionItemScreen(
     val answerList = state.itemList
 
     LazyColumn(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize().padding(paddingValues)
     ){
         items(answerList){item ->
             Answer(body = item.bodyMarkdown.toString())

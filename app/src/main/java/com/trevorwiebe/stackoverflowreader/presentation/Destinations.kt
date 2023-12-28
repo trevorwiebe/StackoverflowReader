@@ -13,3 +13,7 @@ object HotQuestionItemDestination: Destinations{
     const val questionId: String = "question_id"
     const val siteId: String = "site_id"
 }
+
+object HotQuestionsSettings: Destinations {
+    override val route: String = "settings"
+}

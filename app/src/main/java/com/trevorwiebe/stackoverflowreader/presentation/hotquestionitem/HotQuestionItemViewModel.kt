@@ -36,6 +36,14 @@ class HotQuestionItemViewModel @Inject constructor(
         loadQuestion(questionId, siteId, FILTER)
     }
 
+    fun onEvent(events: QuestionEvents){
+        when(events){
+            is QuestionEvents.OnNarrationPaused -> {
+                ttsHelper.shutdown()
+            }
+        }
+    }
+
     private fun loadQuestion(
         questionId: String,
         siteId: String,
